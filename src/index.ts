@@ -1,11 +1,11 @@
 import { HttpError } from "http-errors";
 import app from "./app";
-import { config } from "./config";
+import { config } from "./configs/general.config";
 import debug from "debug";
 import http from "http";
-import prisma from "./prisma";
+import prisma from "./models/prisma";
 
-const PORT = normalizePort(config.port || "3000");
+const PORT = config.port;
 const debugs = debug("blog-api:server");
 
 /**
@@ -37,23 +37,6 @@ process.on("SIGTERM", async () => {
   await prisma.$disconnect();
   process.exit(0);
 });
-
-/**
- * Normalize a port into a number, string, or false.
- */
-function normalizePort(val: string | number): number | string | false {
-  const port = typeof val === "string" ? parseInt(val, 10) : val;
-
-  if (isNaN(port)) {
-    return val; // Named pipe
-  }
-
-  if (port >= 0) {
-    return port; // Port number
-  }
-
-  return false;
-}
 
 /**
  * Event listener for HTTP server "error" event.
