@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6" /* Set the JavaScript language version for emitted JavaScript. */,
+    "module": "commonjs" /* Specify module code generation. */,
+    "rootDir": "./src" /* Specify the root directory of input files. */,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": true /* Enable all strict type-checking options. */,
+    "lib": ["ESNext"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
+    "skipLibCheck": true
+  },
+  "include": ["src/*.ts"],
+  "exclude": ["node_modules"]
+}
